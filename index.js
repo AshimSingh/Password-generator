@@ -15,10 +15,19 @@ function generate(){
     let pass_array=[]
     for(let i=0;i<4;i++){
         let pasLen=Math.floor(Math.random()*8)+8
+        let num=Math.floor(Math.random()*16-pasLen+1)+8
         let password=""
-        for(let i=0;i<pasLen;i++){
-            let rand = Math.floor(Math.random()*94)+33
-            password +=String.fromCharCode(rand)
+        let rand
+        for(let i=0;i<=pasLen;i++){
+            if(i===num){
+                
+                rand = Math.floor(Math.random()*10)+48
+                password +=String.fromCharCode(rand)
+            }
+            else{ 
+                rand = Math.floor(Math.random()*94)+33
+                password +=String.fromCharCode(rand)
+            }
         }
         pass_array.push(password)
     }
@@ -27,6 +36,3 @@ box2.innerHTML =pass_array[1]
 box3.innerHTML =pass_array[2]
 box4.innerHTML =pass_array[3]
 }
-
-
-
